@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Каталог{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1><a href="/catalog">Каталог</a></h1>
+        </div>
+
+        <div class="sort-block">
+            {# Здесь должен быть раздел с сортировкой #}
+        </div>
+
+        <div class="content container">
+            {# Здесь должен отображаться каталог с телефонами #}
+        <div calss="row">
+            {% for data in catalog %}
+                <div class="p-2 col-6">
+                    <h1>{{ data.name }}</h1>
+                    <p>Стоимость: {{ data.price }} руб.</p>
+                    <img src="{{ data.image }}">
+                </div>
+            {%  endfor %}
+        </div>
+        </div>
+    </div>
+{% endblock %}
