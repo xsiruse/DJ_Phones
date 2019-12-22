@@ -9,17 +9,36 @@
         </div>
 
         <div class="sort-block">
-            {# Здесь должен быть раздел с сортировкой #}
+            <div class="">
+                <div class="header">
+                    <ul class="sort-by list-inline">Сортировать:
+                        <li class="list-inline-item">
+                            <a href="/catalog?sort=name">по алфавиту</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="/catalog?sort=price">сначала дешевые</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="/catalog?sort=-price">сначала дорогие</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+            </div>
         </div>
 
         <div class="content container">
             {# Здесь должен отображаться каталог с телефонами #}
-        <div calss="row">
+        <div class="row">
             {% for data in catalog %}
-                <div class="p-2 col-6">
-                    <h1>{{ data.name }}</h1>
+                <div class="p-2  col-12 col-sm-4">
+                    <a href="/catalog/{{ data.slug }}/">
+                        <h1>{{ data.name }}</h1>
+                    </a>
                     <p>Стоимость: {{ data.price }} руб.</p>
-                    <img src="{{ data.image }}">
+                    <img width="200" src="{{ data.image }}" alt="{{ data.name }}">
                 </div>
             {%  endfor %}
         </div>

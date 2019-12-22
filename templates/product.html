@@ -8,6 +8,15 @@
             <h1>Телефон</h1>
         </div>
         <div class="content">
+            <a href="/catalog/"><< Назад</a>
+            <div class="p-2 mx-auto col-12">
+
+                <h1>{{ data.name }}</h1>
+                <p>Стоимость: {{ data.price }} руб.</p>
+                <p>Дата релиза: {{ data.release_date }}</p>
+                <p>Наличие LTE: {{ data.lte_exists|yesno:"Есть,Нету" }}</p>
+                <img width="200" src="{{ data.image }}" alt="{{ data.name }}">
+            </div>
 
         </div>
     </div>

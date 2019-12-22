@@ -1,6 +1,8 @@
 import csv
 
 from django.core.management.base import BaseCommand, CommandError
+from django.utils.text import slugify
+
 from phones.models import Phone
 
 
@@ -21,7 +23,8 @@ class Command(BaseCommand):
                                                  image=line[2],
                                                  price=line[3],
                                                  release_date=line[4],
-                                                 lte_exists=line[5]
+                                                 lte_exists=line[5],
+                                                 slug=slugify(line[1]),
                                                  )
         except FileNotFoundError:
             raise CommandError("File does not exist")
